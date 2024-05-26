@@ -3,7 +3,7 @@ session_start();
 
 if ($_POST) {
     include("./bd.php");
-
+    
     $usuario = (isset($_POST['usuario'])) ? $_POST['usuario'] : "";
     $password = (isset($_POST['password'])) ? $_POST['password'] : "";
 
@@ -20,7 +20,7 @@ if ($_POST) {
 
     $lista_usuario = $sentencia->fetch(PDO::FETCH_LAZY);
 
-    if ($lista_usuario['n_usuario'] > 0) {
+    if ($lista_usuario['n_usuario']) {
 
         $_SESSION['usuario'] = $lista_usuario['usuario'];
         $_SESSION['logueado'] = true;
